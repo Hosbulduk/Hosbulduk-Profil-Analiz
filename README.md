@@ -1,21 +1,24 @@
 # Hosbulduk-Profil-Analiz
 <img width="1324" height="753" alt="Hosbulduk" src="https://github.com/user-attachments/assets/0fc3cf35-0aea-444e-93fc-7c16ef75b0fb" />
 
+🔧 Kullanım / Usage
+Windows:
 
-# Hoşbulduk Profil Analiz v2
-## 🔧 Kullanım / Usage
+1- Portable sürümdür, kurulum gerektirmez. "Portable" isimli bir klasör oluşturun. / Portable version, no installation required. Create a folder named "Portable".
 
-**Windows:**
-1. Portable isimli bir klasör oluştur 
-2. `app.exe` dosyasını o klasöre koy
-3. Çift tıkla
+2- app.exe dosyasını o klasöre koyun. / Place the app.exe file into that folder.
 
-**Linux:**
-1. Portable isimli bir klasör oluştur
-2. `app.bin` dosyasını o klasöre koy
-3. Terminalde: `chmod +x app.bin && ./app.bin`
+3- Çift tıklayarak çalıştırın. / Double-click to run.
 
-> ⚠️ Uygulama çalışma klasöründe veri dosyaları oluşturur. Tek başına masaüstüne koymayın.
+Linux:
+
+1- Portable sürümdür, kurulum gerektirmez. "Portable" isimli bir klasör oluşturun. / Portable version, no installation required. Create a folder named "Portable".
+
+2- app.bin dosyasını o klasöre koyun. / Place the app.bin file into that folder.
+
+3- Terminalde: chmod +x app.bin && ./app.bin / In terminal: chmod +x app.bin && ./app.bin
+
+⚠️ Uygulama çalışma klasöründe veri dosyaları oluşturur. Tek başına masaüstüne koymayın. / The application creates data files in its working directory. Do not place it directly on the desktop.
 
 ## ⬇️ İndirme / Download
 
