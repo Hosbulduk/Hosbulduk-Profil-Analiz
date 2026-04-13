@@ -3,8 +3,19 @@
 
 
 # Hoşbulduk Profil Analiz v2
+## 🔧 Kullanım / Usage
 
-Vestel ve üretimi TV'ler için UART tabanlı profil analiz aracı.
+**Windows:**
+1. Portable isimli bir klasör oluştur 
+2. `app.exe` dosyasını o klasöre koy
+3. Çift tıkla
+
+**Linux:**
+1. Portable isimli bir klasör oluştur
+2. `app.bin` dosyasını o klasöre koy
+3. Terminalde: `chmod +x app.bin && ./app.bin`
+
+> ⚠️ Uygulama çalışma klasöründe veri dosyaları oluşturur. Tek başına masaüstüne koymayın.
 
 ## ⬇️ İndirme / Download
 
