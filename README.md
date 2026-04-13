@@ -1,5 +1,6 @@
 # Hosbulduk-Profil-Analiz
-Description kutusuna (aşağıda hazır metin var):
+<img width="1324" height="753" alt="Hosbulduk" src="https://github.com/user-attachments/assets/0fc3cf35-0aea-444e-93fc-7c16ef75b0fb" />
+
 
 ## 📦 Kurulum
 
