@@ -3,6 +3,8 @@
 
 # Smart TV Profile Editor & Firmware Tool
 
+This project is based on long-term work in TV firmware analysis, hardware modification and embedded system research.
+
 Tool for analyzing and modifying hardware/software profiles extracted from Smart TVs via USB.
 
 It allows advanced users to inspect, edit, and reapply profile data back to the device.
@@ -10,6 +12,8 @@ It allows advanced users to inspect, edit, and reapply profile data back to the 
 ---
 
 ## 📌 Overview
+
+Developed from practical experience with TV service menus, firmware profiles and embedded system diagnostics.
 
 This tool parses HW/SW profiles exported from the TV (via USB), allowing users to:
 
@@ -22,6 +26,8 @@ Unlike simple patch-based tools, it works directly on extracted profile data.
 ---
 
 ## 🧠 Advanced Features
+
+Designed for advanced users working with real-world TV firmware and hardware profiles.
 
 - HEX editor for low-level data editing
 - EFSL binary profile support
@@ -82,4 +88,4 @@ The developer assumes no liability for any direct or indirect damages, including
 
 This project is licensed under CC BY-NC-SA 4.0.
 
-Commercial use is strictly prohibited.rg/licenses/by-nc-sa/4.0/)
+Commercial use is strictly prohibited.
