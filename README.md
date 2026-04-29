@@ -45,7 +45,9 @@ Supports Vestel TV mainboards:
 - MB100
 - MB120
 - MB130
-
+- MB230
+- MB97
+- MB211
 ---
 
 ## ⬇️ Download
