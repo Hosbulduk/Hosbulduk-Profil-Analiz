@@ -67,7 +67,10 @@ Supports Vestel TV mainboards:
 
 ---
 
-⚠️ Always use the latest release for stability and updates.
+📦 Portable Deployment
+The application is fully portable and does not require installation.
+
+NOTE: The executable must be located in the same directory as the data files or remain inside the portable folder to work correctly.
 
 ---
 
