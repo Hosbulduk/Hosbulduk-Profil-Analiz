@@ -39,14 +39,27 @@ Titan ELF unknown hash detection
 📺 Supported Hardware
 Supports Vestel TV mainboards:
 
-MB100, MB120, MB130, MB230, MB97, MB211
+MB100
+
+MB120
+
+MB130
+
+MB230
+
+MB97
+
+MB211
 
 ⬇️ Download
-📦 Latest Release: v2.0.0
+📦 Download latest release:
 
-🪟 Windows 10/11 x64 (Portable): Download app.exe
+👉 Release v2.0.0 Page
 
-🐧 Linux x64 (Portable): Download app.bin
+Quick Links (Direct Download)
+📥 Download for Windows (app.exe)
+
+📥 Download for Linux (app.bin)
 
 📦 Portable Deployment
 The application is fully portable and does not require installation.
