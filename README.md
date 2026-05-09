@@ -49,7 +49,7 @@ Supports Vestel TV mainboards:
 
 📦 Download latest release:
 
-👉 [Release v2.0.0 Page](https://github.com/Hosbulduk/Hosbulduk-Profil-Analiz/releases/download/v2.0.0/)
+👉 👉 [Release v2.0.0 Page](https://github.com/Hosbulduk/Hosbulduk-Profil-Analiz/releases/tag/v2.0.0)
 
 Quick Links (Direct Download)
 
