@@ -49,13 +49,13 @@ Supports Vestel TV mainboards:
 
 📦 Download latest release:
 
-👉 Release v2.0.0 Page: https://github.com/Hosbulduk/Hosbulduk-Profil-Analiz/releases/download/v2.0.0/
+👉 [Release v2.0.0 Page](https://github.com/Hosbulduk/Hosbulduk-Profil-Analiz/releases/download/v2.0.0/)
 
 Quick Links (Direct Download)
 
-📥 Download for Windows (app.exe): https://github.com/Hosbulduk/Hosbulduk-Profil-Analiz/releases/download/v2.0.0/app.exe
+📥 [Download for Windows (app.exe)](https://github.com/Hosbulduk/Hosbulduk-Profil-Analiz/releases/download/v2.0.0/app.exe)
 
-📥 Download for Linux (app.bin): https://github.com/Hosbulduk/Hosbulduk-Profil-Analiz/releases/download/v2.0.0/app
+📥 [Download for Linux (app.bin)](https://github.com/Hosbulduk/Hosbulduk-Profil-Analiz/releases/download/v2.0.0/app)
 
 ## 📦 Portable Deployment
 
