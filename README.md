@@ -1,6 +1,8 @@
 # Hosbulduk-Profil-Analiz
 <img width="1324" height="753" alt="Hosbulduk" src="https://github.com/user-attachments/assets/0fc3cf35-0aea-444e-93fc-7c16ef75b0fb" />
 
+
+
 Smart TV Profile Editor & Firmware Tool
 This project is based on long-term work in TV firmware analysis, hardware modification and embedded system research.
 
@@ -54,12 +56,12 @@ MB211
 ⬇️ Download
 📦 Download latest release:
 
-👉 Release v2.0.0 Page
+👉 [Release v2.0.0 Page](https://github.com/Hosbulduk/Hosbulduk-Profil-Analiz/releases/download/v2.0.0/)
 
 Quick Links (Direct Download)
-📥 Download for Windows (app.exe)
+📥 [Download for Windows (app.exe)](https://github.com/Hosbulduk/Hosbulduk-Profil-Analiz/releases/download/v2.0.0/app.exe)
 
-📥 Download for Linux (app.bin)
+📥 [Download for Linux (app.bin)](https://github.com/Hosbulduk/Hosbulduk-Profil-Analiz/releases/download/v2.0.0/app)
 
 📦 Portable Deployment
 The application is fully portable and does not require installation.
@@ -85,3 +87,4 @@ The developer assumes no liability for any direct or indirect damages, including
 This project is licensed under CC BY-NC-SA 4.0.
 
 Commercial use is strictly prohibited.
+
