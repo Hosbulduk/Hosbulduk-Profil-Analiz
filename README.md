@@ -23,6 +23,18 @@ This tool parses HW/SW profiles exported from the TV (via USB), allowing users t
 
 Unlike simple patch-based tools, it works directly on extracted profile data.
 
+---
+
+## 📡 USB Checkup & Community Diagnostics
+
+**USB Checkup** is a pre-diagnostic tool that collects critical system data from your TV via USB, including motherboard info, I2C errors, UBIFS/NAND status, panel compatibility, and `swprofile` / `hwprofile` files. The collected data is then prepared for editing within the **Hosbulduk Profile Analyzer**.
+
+Join the community to discuss **USB connection methods**, **diagnostic scripts**, and **Vestel motherboard compatibility** (MB100, MB130, MB230, etc.):
+
+[🔗 Go to the USB Checkup Discussion](https://github.com/Hosbulduk/Hosbulduk-Profil-Analiz/discussions)
+
+---
+
 ## 🧠 Advanced Features
 
 Designed for advanced users working with real-world TV firmware and hardware profiles.
