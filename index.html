@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TV Checkup</title>
+<style>
+:root{--bg:#1a1d24;--surface:#22262f;--card:#2a2f3a;--border:#353c4a;--accent:#88c4e8;--text:#dde4f0;--text2:#9aaabf;--muted:#5a6880;--ok:#4caf82;--ok-bg:rgba(76,175,130,.1);--ok-border:rgba(76,175,130,.3);--warn:#c8a84b;--warn-bg:rgba(200,168,75,.1);--warn-border:rgba(200,168,75,.3);--fail:#e05555;--fail-bg:rgba(224,85,85,.1);--fail-border:rgba(224,85,85,.3);}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:"Segoe UI",Arial,sans-serif;font-size:14px;padding:0;margin:0;min-height:100vh;}
+.hdr{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+.hdr-left{display:flex;align-items:center;gap:12px;}
+.hdr-title{font-size:16px;font-weight:800;color:var(--accent);letter-spacing:1px;}
+.hdr-sub{font-size:11px;color:var(--muted);}
+.hdr-board{font-size:12px;font-weight:700;color:var(--text2);background:var(--card);padding:4px 10px;border-radius:6px;border:1px solid var(--border);}
+.banner{margin:16px 20px;padding:16px 20px;border-radius:12px;display:flex;align-items:center;gap:14px;}
+.banner-icon{font-size:28px;}
+.banner-title{font-size:18px;font-weight:900;letter-spacing:.5px;}
+.banner-desc{font-size:12px;margin-top:3px;opacity:.8;}
+.s-ok{background:var(--ok-bg);border:1.5px solid var(--ok-border);color:var(--ok);}
+.s-warn{background:var(--warn-bg);border:1.5px solid var(--warn-border);color:var(--warn);}
+.s-fail{background:var(--fail-bg);border:1.5px solid var(--fail-border);color:var(--fail);}
+.counters{display:flex;gap:8px;margin:0 20px 16px;}
+.cnt{flex:1;padding:10px;border-radius:10px;border:1px solid var(--border);background:var(--surface);text-align:center;cursor:pointer;transition:all .2s;}
+.cnt:hover,.cnt.active{border-color:currentColor;}
+.cnt .n{font-size:26px;font-weight:900;line-height:1;}
+.cnt .l{font-size:10px;color:var(--muted);margin-top:3px;letter-spacing:.5px;}
+.cnt-ok{color:var(--ok);} .cnt-ok.active{background:var(--ok-bg);}
+.cnt-warn{color:var(--warn);} .cnt-warn.active{background:var(--warn-bg);}
+.cnt-fail{color:var(--fail);} .cnt-fail.active{background:var(--fail-bg);}
+.cnt-tech{color:var(--accent);} .cnt-tech.active{background:rgba(136,196,232,.08);}
+.content{padding:0 20px 20px;}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+.card{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border-radius:10px;border-left:3px solid;margin-bottom:8px;background:var(--card);}
+.card-ok{border-color:var(--ok);}
+.card-warn{border-color:var(--warn);}
+.card-fail{border-color:var(--fail);}
+.card-icon{font-size:20px;flex-shrink:0;margin-top:1px;}
+.card-title{font-weight:700;font-size:13px;margin-bottom:3px;}
+.card-ok .card-title{color:var(--ok);}
+.card-warn .card-title{color:var(--warn);}
+.card-fail .card-title{color:var(--fail);}
+.card-desc{font-size:12px;color:var(--text2);line-height:1.5;}
+table{width:100%;border-collapse:collapse;background:var(--surface);border-radius:10px;overflow:hidden;border:1px solid var(--border);font-size:11px;font-family:"Consolas",monospace;}
+th{background:var(--card);color:var(--accent);padding:8px 12px;text-align:left;font-size:9px;letter-spacing:1.5px;border-bottom:1px solid var(--border);}
+td{padding:6px 12px;border-bottom:1px solid rgba(53,60,74,.6);vertical-align:top;line-height:1.4;color:var(--text2);}
+tr:last-child td{border-bottom:none;}
+.sec-row td{background:var(--card);color:var(--accent);font-size:9px;letter-spacing:2px;padding:5px 12px;font-weight:700;border-bottom:1px solid var(--border);}
+.badge{display:inline-block;padding:1px 6px;border-radius:3px;font-size:9px;font-weight:700;letter-spacing:.5px;white-space:nowrap;}
+.badge-OK{background:var(--ok-bg);color:var(--ok);border:1px solid var(--ok-border);}
+.badge-WARN{background:var(--warn-bg);color:var(--warn);border:1px solid var(--warn-border);}
+.badge-FAIL{background:var(--fail-bg);color:var(--fail);border:1px solid var(--fail-border);}
+.row-FAIL td:not(:first-child){color:var(--text);}
+.col-s{width:55px;} .col-c{width:180px;}
+.footer{text-align:center;color:var(--muted);font-size:10px;padding:16px;border-top:1px solid var(--border);margin-top:8px;}
+.empty{text-align:center;padding:40px;color:var(--muted);font-size:13px;}
+</style></head><body>
+<div class="hdr">
+  <div class="hdr-left">
+    <div>📺</div>
+    <div><div class="hdr-title">TV CHECKUP</div><div class="hdr-sub">20260425_084027 &middot; Sat Apr 25 08:40:28 UTC 2026</div></div>
+  </div>
+  <div class="hdr-board">(none)</div>
+</div>
+<div class="banner s-fail"><div class="banner-icon">✖</div><div><div class="banner-title">ISSUE DETECTED</div><div class="banner-desc">A technical problem was found on your TV.</div></div></div>
+<div class="counters">
+  <div class="cnt cnt-ok" onclick="showTab('ok',this)"><div class="n">16</div><div class="l">✅ OK</div></div>
+  <div class="cnt cnt-warn" onclick="showTab('warn',this)"><div class="n">7</div><div class="l">⚠ WARNING</div></div>
+  <div class="cnt cnt-fail active" onclick="showTab('fail',this)"><div class="n">3</div><div class="l">❌ FAIL</div></div>
+  <div class="cnt cnt-tech" onclick="showTab('tech',this)"><div class="n">🔧</div><div class="l">TECHNICIAN</div></div>
+</div>
+<div class="content">
+<div id="tab-ok" class="tab-panel">
+<div class="card card-ok"><div class="card-icon">🖥️</div><div class="card-body"><div class="card-title">System healthy</div><div class="card-desc">CPU: ARMv7 Processor rev 4 (v7l) | RAM: 165MB free / 721MB total | Uptime: 6 min</div></div></div><div class="card card-ok"><div class="card-icon">🔌</div><div class="card-body"><div class="card-title">Motherboard detected</div><div class="card-desc">MB230</div></div></div><div class="card card-ok"><div class="card-icon">⚙️</div><div class="card-body"><div class="card-title">System files intact</div><div class="card-desc">All conf files match with backups.</div></div></div><div class="card card-ok"><div class="card-icon">🌐</div><div class="card-body"><div class="card-title">Ethernet active</div><div class="card-desc">MAC: CC:D3:C1:6C:67:F8</div></div></div><div class="card card-ok"><div class="card-icon">📁</div><div class="card-body"><div class="card-title">Profile files copied</div><div class="card-desc">Located in the checkup/profiles/ folder. You can drag them into the Hosbulduk application.</div></div></div>
+</div>
+<div id="tab-warn" class="tab-panel">
+<div class="card card-warn"><div class="card-icon">📺</div><div class="card-body"><div class="card-title">Panel compatibility could not be checked</div><div class="card-desc">Missing panel or software information.</div></div></div><div class="card card-warn"><div class="card-icon">🧠</div><div class="card-body"><div class="card-title">Memory sharing warning</div><div class="card-desc">CMA memory errors: 17 items.</div></div></div><div class="card card-warn"><div class="card-icon">📶</div><div class="card-body"><div class="card-title">WiFi hardware failed to initialize</div><div class="card-desc">Module (mt7662u_sta) is loaded but MAC address could not be obtained.</div></div></div><div class="card card-warn"><div class="card-icon">📶</div><div class="card-body"><div class="card-title">WiFi connection is not permanent</div><div class="card-desc">WiFi may disconnect after TV restart. You may need to reconnect manually from settings.</div></div></div><div class="card card-warn"><div class="card-icon">🔵</div><div class="card-body"><div class="card-title">Bluetooth driver missing</div><div class="card-desc">btusb module could not be detected.</div></div></div>
+</div>
+<div id="tab-fail" class="tab-panel active">
+<div class="card card-fail"><div class="card-icon">💿</div><div class="card-body"><div class="card-title">Software info unreadable</div><div class="card-desc">version.txt file not found.</div></div></div><div class="card card-fail"><div class="card-icon">📡</div><div class="card-body"><div class="card-title">Incorrect signal type (LVDS)</div><div class="card-desc">System is trying to drive the panel with LVDS signal. UHD panels do not work with LVDS. This may be the main cause of image distortion.</div></div></div><div class="card card-fail"><div class="card-icon">⚡</div><div class="card-body"><div class="card-title">Hardware communication error</div><div class="card-desc">18 errors detected on the I2C line. There may be an issue with the panel or T-CON connection.</div></div></div><div class="card card-fail"><div class="card-icon">💾</div><div class="card-body"><div class="card-title">Storage error detected</div><div class="card-desc">2 errors detected in internal memory. Freezing or channel list loss may occur.</div></div></div>
+</div>
+<div id="tab-tech" class="tab-panel">
+<table><thead><tr><th class="col-s">STATUS</th><th class="col-c">CATEGORY</th><th>DETAIL</th></tr></thead><tbody>
+<tr class="sec-row"><td colspan="3">SOFTWARE INFO</td></tr>
+<tr class="row-FAIL"><td class="badge badge-FAIL">FAIL</td><td>Software</td><td>version.txt not found</td></tr>
+<tr class="sec-row"><td colspan="3">CPU AND SYSTEM</td></tr>
+<tr class="row-OK"><td class="badge badge-OK">OK</td><td>Processor</td><td>ARMv7 Processor rev 4 (v7l) | BogoMIPS: 24.00</td></tr>
+<tr class="row-OK"><td class="badge badge-OK">OK</td><td>Memory</td><td>Total: 721MB | Free: 165MB</td></tr>
+<tr class="row-OK"><td class="badge badge-OK">OK</td><td>Uptime</td><td>6 min</td></tr>
+<tr class="row-OK"><td class="badge badge-OK">OK</td><td>Process Status</td><td>Normal (1 zombie)</td></tr>
+<tr class="sec-row"><td colspan="3">MOTHERBOARD DETECTION</td></tr>
+<tr class="row-OK"><td class="badge badge-OK">OK</td><td>Motherboard</td><td>MB230</td></tr>
+<tr class="sec-row"><td colspan="3">PCF PANEL COMPATIBILITY</td></tr>
+<tr class="row-WARN"><td class="badge badge-WARN">WARN</td><td>Signal Type</td><td>LVDS — May be incorrect for UHD panel</td></tr>
+<tr class="row-WARN"><td class="badge badge-WARN">WARN</td><td>Panel Compatibility</td><td>Comparison failed</td></tr>
+<tr class="sec-row"><td colspan="3">PANEL INFO</td></tr>
+<tr class="row-WARN"><td class="badge badge-WARN">WARN</td><td>Panel Size</td><td>nvt.app.ini not found</td></tr>
+<tr class="sec-row"><td colspan="3">HARDWARE COMMUNICATION</td></tr>
+<tr class="row-FAIL"><td class="badge badge-FAIL">FAIL</td><td>I2C Error</td><td>18 items</td></tr>
+<tr class="row-WARN"><td class="badge badge-WARN">WARN</td><td>CMA Memory</td><td>17 errors</td></tr>
+<tr class="sec-row"><td colspan="3">CONF FILE INTEGRITY</td></tr>
+<tr class="row-OK"><td class="badge badge-OK">OK</td><td>PQF.bin</td><td>Matches backup</td></tr>
+<tr class="row-OK"><td class="badge badge-OK">OK</td><td>PCF.pcf</td><td>Matches backup</td></tr>
+<tr class="row-OK"><td class="badge badge-OK">OK</td><td>mb230_hwprofile.bin</td><td>Matches backup</td></tr>
+<tr class="row-OK"><td class="badge badge-OK">OK</td><td>mb230_swprofile.bin</td><td>Matches backup</td></tr>
+<tr class="row-OK"><td class="badge badge-OK">OK</td><td>AQ.bin</td><td>Matches backup</td></tr>
+<tr class="sec-row"><td colspan="3">UBIFS / NAND ERROR</td></tr>
+<tr class="row-FAIL"><td class="badge badge-FAIL">FAIL</td><td>UBIFS/NAND</td><td>2 errors</td></tr>
+<tr class="sec-row"><td colspan="3">MTD PARTITION</td></tr>
+<tr class="row-OK"><td class="badge badge-OK">OK</td><td>MTD</td><td>dev:    size   erasesize  name mtd0: 00100000 00040000 "xboot" mtd1: 00100000 00040000 "ddrcfg" mtd2: 000c0000 00040000 "ddrbud" mtd3: 00140000 00040000 "xbootdat" mtd4: 000c0000 00040000 "npt" mtd5: 00240000 00040000 "misc" mtd6: 00280000 00040000 "secos" mtd7: 00140000 00040000 "uboot" mtd8: 00140000 00040000 "fdt0" mtd9: 00140000 00040000 "fdt1" mtd10: 00700000 00040000 "ker0" mtd11: 00c00000 00040000 "ker1" mtd12: 0c300000 00040000 "fs0" mtd13: 00a00000 00040000 "apdat0" mtd14: 11000000 00040000 "buffer" mtd15: 00180000 00040000 "logo" </td></tr>
+<tr class="sec-row"><td colspan="3">DRIVERS AND NETWORK</td></tr>
+<tr class="row-OK"><td class="badge badge-OK">OK</td><td>Ethernet</td><td>MAC: CC:D3:C1:6C:67:F8</td></tr>
+<tr class="row-WARN"><td class="badge badge-WARN">WARN</td><td>WiFi (mt7662u_sta)</td><td>Module loaded but failed to initialize</td></tr>
+<tr class="row-WARN"><td class="badge badge-WARN">WARN</td><td>WiFi Profile</td><td>No saved networks</td></tr>
+<tr class="row-WARN"><td class="badge badge-WARN">WARN</td><td>Bluetooth</td><td>btusb module not loaded</td></tr>
+<tr class="sec-row"><td colspan="3">PROFILE FILES</td></tr>
+<tr class="row-OK"><td class="badge badge-OK">OK</td><td>mb230_swprofile.bin</td><td>Copied</td></tr>
+<tr class="row-OK"><td class="badge badge-OK">OK</td><td>mb230_hwprofile.bin</td><td>Copied</td></tr>
+<tr class="row-OK"><td class="badge badge-OK">OK</td><td>PQF.bin</td><td>Copied</td></tr>
+<tr class="row-OK"><td class="badge badge-OK">OK</td><td>PCF.pcf</td><td>Copied</td></tr>
+</tbody></table>
+</div>
+</div>
+<div class="footer">USB Checkup &middot; Hosbulduk &middot; 26 checks &middot; Profiles: checkup/profiles/</div>
+<script>
+function showTab(id,el){
+  document.querySelectorAll(".tab-panel").forEach(function(p){p.classList.remove("active");});
+  document.querySelectorAll(".cnt").forEach(function(c){c.classList.remove("active");});
+  document.getElementById("tab-"+id).classList.add("active");
+  el.classList.add("active");
+}
+if(3===0){showTab("ok",document.querySelector(".cnt-ok"));}
+</script>
+</body></html>
