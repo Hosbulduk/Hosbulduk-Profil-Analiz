@@ -32,7 +32,7 @@ Unlike simple patch-based tools, it works directly on extracted profile data.
 Join the community to discuss **USB connection methods**, **diagnostic scripts**, and **Vestel motherboard compatibility** (MB100, MB130, MB230, etc.):
 
 [🔗 Go to the USB Checkup Discussion](https://github.com/Hosbulduk/Hosbulduk-Profil-Analiz/discussions)
-
+<img width="1886" height="902" alt="usb checkup" src="https://github.com/user-attachments/assets/5d2161a3-5240-4e55-9832-1b994670f0fa" />
 ---
 
 ## 🧠 Advanced Features
